@@ -125,10 +125,10 @@ classDiagram
     }
 
     class GestorReservas {
-        - List~string~ EventoIds
-        - List~int~ Cedulas
-        - List~Evento~ EventosReservados
-        - List~int~ Cantidades
+        - List EventoIds
+        - List Cedulas
+        - List EventosReservados
+        - List Cantidades
         + GestorReservas()
         + void Reservar(string id, int cedula, Evento[] eventos, int cantidad)
         + void EliminarReserva(int indice)
@@ -141,7 +141,7 @@ classDiagram
     Evento <|-- Cine : Hereda
     Evento <|-- Concierto : Hereda
     Evento <|-- Taller : Hereda
-    GestorReservas o-- Evento : Gestiona / Agrega
+    GestorReservas o-- Evento : Gestiona
 ```
 **¿Por qué utilizaste una clase abstracta `Evento` en lugar de crear clases completamente independientes para Cine, Concierto y Taller? ¿Qué ventajas tiene esta decisión cuando necesitamos agregar un nuevo tipo de evento?**
 Tenemos la ventaja de no tener que declarar las varibles otra vez, evitando la repeticion de codigo y todas en si compartes bastantes caracteriticas, la ventaja al crear otro tipo de evento es que por ejemplo Partido de futbol solo tenemos que hacer que sea hija para que compartas las caracteristicas. Basicamente se uso una clase abstracta por el hecho de ser como una plantilla.
